@@ -1,0 +1,14 @@
+service: aws-lambda-function
+provider:
+  name: aws
+  runtime: nodejs18.x
+  memorySize: 512
+  stage: production
+  region: us-east-1
+
+functions:
+  api:
+    handler: lambda.handler
+    events:
+      - http: ANY /
+      - http: ANY /{proxy+}
